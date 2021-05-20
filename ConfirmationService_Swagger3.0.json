@@ -1,0 +1,809 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "EC.VL.ORD.ConfirmationService",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:22201/"
+        }
+    ],
+    "paths": {
+        "/api/Confirmation/Ping": {
+            "get": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.OkResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Confirmation/Order": {
+            "post": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.JsonResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Confirmation/SAPInvoice": {
+            "post": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.JsonResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Confirmation/Invoice": {
+            "post": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "text/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "application/*+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.JsonResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Health/Ping": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Health/Secure": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/revenueconfirmationprocessor/ping": {
+            "get": {
+                "tags": [
+                    "RevenueConfirmationProcessor"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/xml": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/revenueconfirmationprocessor/ProcessInvoice/{eventCorrelationId}": {
+            "post": {
+                "tags": [
+                    "RevenueConfirmationProcessor"
+                ],
+                "parameters": [
+                    {
+                        "name": "eventCorrelationId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "text/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "application/*+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/revenueconfirmationprocessor/ProcessOrder/{eventCorrelationId}": {
+            "post": {
+                "tags": [
+                    "RevenueConfirmationProcessor"
+                ],
+                "parameters": [
+                    {
+                        "name": "eventCorrelationId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "text/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "application/*+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/revenueconfirmationprocessor/ProcessInvoiceSummary/{eventCorrelationId}": {
+            "post": {
+                "tags": [
+                    "RevenueConfirmationProcessor"
+                ],
+                "parameters": [
+                    {
+                        "name": "eventCorrelationId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ConfirmationService.DataContract.RevenueConfirmation.Detail": {
+                "type": "object",
+                "properties": {
+                    "mslRevenueLineItemID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mslSalesOrderLineItemID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocLineItemNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceQuantity": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocExtendedLineAmount": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceUnitPrice": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapInvoiceLineNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapErrorCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapMessageText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingPlanLineItemNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "invoiceLineItemTaxAmount": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "invoiceLineItemTaxExclusiveExtendedAmount": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingPlanNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "oeSalesOrderNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "oeSalesOrderLineItemNumber": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessage": {
+                "type": "object",
+                "properties": {
+                    "header": {
+                        "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessageHeader"
+                    },
+                    "testPurchaseOrder": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfirmationService.DataContract.RevenueConfirmation.OrderConfirmationMessageHeader": {
+                "type": "object",
+                "properties": {
+                    "messageID": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "messageType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sourceSystemID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "purchaseOrderID": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "externalIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "salesDocumentNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "totalNetValue": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creditReasonCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "testHeader": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapErrors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.SAPError"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessage": {
+                "type": "object",
+                "properties": {
+                    "header": {
+                        "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessageHeader"
+                    },
+                    "details": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.Detail"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfirmationService.DataContract.RevenueConfirmation.RevenueConfirmationMessageHeader": {
+                "type": "object",
+                "properties": {
+                    "purchaseOrderID": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "billingDocRefNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceDate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notaFiscal": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "invoiceCategory": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapErrors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConfirmationService.DataContract.RevenueConfirmation.SAPError"
+                        },
+                        "nullable": true
+                    },
+                    "sendFromCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "docRefID": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "testHeader": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfirmationService.DataContract.RevenueConfirmation.SAPError": {
+                "type": "object",
+                "properties": {
+                    "sapErrorCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapMessageText": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EC.VL.ORD.ConfirmationService.Contracts.ConfirmationResponse": {
+                "required": [
+                    "details",
+                    "header"
+                ],
+                "type": "object",
+                "properties": {
+                    "header": {
+                        "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.Header"
+                    },
+                    "details": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.Detail"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EC.VL.ORD.ConfirmationService.Contracts.Detail": {
+                "type": "object",
+                "properties": {
+                    "mslSalesOrderLineItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "billingPlanLineItemNumber": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "billingDocLineItemNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "billingDocInvoiceQuantity": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "billingDocExtendedLineAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "billingDocInvoiceUnitPrice": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "sapInvoiceLineNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "invoiceLineItemTaxAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "invoiceLineItemTaxExclusiveExtendedAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "billingPlanNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "oeSalesOrderNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "oeSalesOrderLineItemNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapErrorCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapMessageText": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EC.VL.ORD.ConfirmationService.Contracts.Header": {
+                "required": [
+                    "sendFromCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "billingDocRefNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currencyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceDate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "billingDocInvoiceNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendFromCode": {
+                        "type": "string"
+                    },
+                    "docRefId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapErrors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EC.VL.ORD.ConfirmationService.Contracts.SAPError"
+                        },
+                        "nullable": true
+                    },
+                    "totalAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "totalTaxAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "totalTaxExclusiveExtendedAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "totalLineItem": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EC.VL.ORD.ConfirmationService.Contracts.SAPError": {
+                "type": "object",
+                "properties": {
+                    "sapErrorCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sapMessageText": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Microsoft.AspNetCore.Mvc.JsonResult": {
+                "type": "object",
+                "properties": {
+                    "contentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "serializerSettings": {
+                        "nullable": true
+                    },
+                    "statusCode": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "value": {
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Microsoft.AspNetCore.Mvc.OkResult": {
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            }
+        }
+    }
+}
